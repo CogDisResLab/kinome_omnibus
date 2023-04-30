@@ -1,0 +1,27 @@
+# The PamStation® Platform
+
+The PamGene PamStation 12 (PamStation® 12) Platform is a high-throughput peptide array platform that enables multiplexed kinase activity profiling. The technology is based on the PamChip microarray chips, which contain hundreds of unique peptide sequences that are phosphorylated by kinases. The Pamstation® 12 can be used to profile the activity of serine/threonine (STK) kinases or protein tyrosine (PTK) kinases. The platform has two separate components: The Microarray Chip (PamChip® 4), and the Platform (Pamstation® 12) to process the samples. @fig-platform-overview shows an overview of the platform.
+
+![An overview of the PamStation® 12 Platform](img/PamStation-Assay-Overview.jpg){#fig-platform-overview}
+
+## PamChip® 4
+
+The PamChip® is a microarray chip that is used for profiling the kinase activity. Each chip contains four wells, with each well being capable of processing a single sample. @fig-pamchip-closeup shows a typical PamChip&reg; 4
+
+Each well contains up to 196 unique reporter peptides that can be phosphorylated by specific kinases. The STK and PTK PamChips have 144 and 196 peptides, respectively. The phosphorylation of the peptides is detected in real-time using fluorescent antibodies against the phosphorylated residues. The resulting fluorescent intensity is a direct measure of the extent of reporter peptide phosphorylation, and can be used as a proxy for kinase activity. @fig-pamchip-detection-principle shows the underlying principle of detection.
+
+![A close-up view of a PamChip&reg; 4](img/PamChip-Picture.jpg){#fig-pamchip-closeup}
+
+## PamStation® 12
+
+The Pamstation® 12 system consists of a robotic liquid handling system, a hybridization chamber, and a laser scanner. The robotic liquid handling system is used to apply samples, buffers, and fluorescent antibodies to the PamChips. The hybridization chamber is designed to hold up to three PamChips and provide the necessary conditions for kinase reactions to occur. The laser scanner is used to detect the fluorescent signals from the PamChips.
+
+![Detection Principle for the Protein Tyrosine Kinase (PTK) and Serine/Threonine Kinase (STK Chip)](img/PamChip-Detection-Principle.jpg){#fig-pamchip-detection-principle}
+
+## Key Advantages
+
+The Pamstation® 12 has several key advantages over other kinase activity profiling methods. First, the platform allows for unbiased detection of kinase activity, as it does not rely on prior knowledge of kinase-substrate interactions. Second, the real-time detection of kinase activity allows for the precise measurement of kinetic parameters, such as reaction rates and enzyme efficiency. Third, the platform is highly sensitive and can detect changes in kinase activity even in complex biological samples, such as cell lysates and tissue homogenates.
+
+The Pamstation® 12 has been widely used in a variety of research fields, including cancer biology, neuroscience, and plant biology. For example, the platform has been used to study the activity of kinases in breast cancer cells and to identify potential therapeutic targets for cancer treatment. Additionally, the Pamstation® 12 has been used to profile the kinome of Arabidopsis thaliana, a model plant organism, and to gain insights into the regulation of plant development and stress responses.
+
+In summary, the PamGene PamStation twelve is a powerful tool for the high-throughput profiling of kinase activity. The platform offers several advantages over other methods, including unbiased detection of kinase activity, real-time measurement of kinetic parameters, and high sensitivity for complex biological samples. The Pamstation® 12 is a registered trademark of PamGene International B.V. and has been widely used in diverse research fields to gain insights into the molecular mechanisms underlying complex biological processes.

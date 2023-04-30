@@ -2,13 +2,14 @@ project:
   type: book
 
 book:
-  title: "kinome_omnibus"
+  title: "CDRL Kinome Analysis Omnibus"
   author: "Cognitive Disorders Research Lab"
   date: "4/30/2023"
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    - platform.qmd
+    - data_output.qmd
     - references.qmd
 
 bibliography: references.bib

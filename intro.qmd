@@ -1,9 +1,9 @@
 # Introduction
 
-This is a book created from markdown and executable code.
+Kinases are essential regulatory proteins that play a pivotal role in numerous biological processes, including signal transduction, cell cycle control, and gene expression. Dysregulation of kinase activity has been implicated in various human diseases, including cancer, diabetes, and neurodegenerative disorders [@manning2002].
 
-See @knuth84 for additional discussion of literate programming.
+While measuring kinase expression levels can provide some insight into their biological function, it is crucial to assess kinase activity levels for a more accurate understanding of their role in biological processes [@zhang2009]. Research has shown that protein expression is poorly correlated with protein abundance and subsequent activity [@smail2021]. Kinase activity profiling allows for the detection of post-translational modifications, such as phosphorylation, that regulate kinase activity and, therefore, better represents the actual functional state of the kinase in the cell [@mann2003].
 
-```{r}
-1 + 1
-```
+It is also essential to consider the redundancy and fault-tolerant nature of kinase signaling networks. In many cases, multiple kinases can activate the same downstream target, making it difficult to pinpoint the exact kinase responsible for a particular phenotype [@zhang2009]. Therefore, screening multiple kinases simultaneously can provide a more comprehensive understanding of the complex signaling networks involved in a particular biological process.
+
+To enable simultaneous profiling of kinase activity for hundreds of protein kinases in complex biological samples, the PamStation12 microarray platform has been developed. This platform uses peptide array technology, such as the serine/threonine (STK) and phospho-tyrosine (PTK) chips from PamGene, to provide high-throughput and multiplexed analysis of kinase activity [@tacken2005; @mclaggan2006; @vepachedu2005].
