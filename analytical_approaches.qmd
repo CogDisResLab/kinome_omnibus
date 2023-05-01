@@ -7,17 +7,28 @@ The PamStation&reg; 12 Platform generates a large amount of data in a single exp
 
 ## Approaches
 
-The approaches to analyze the data are driven by two related questions:
+The analysis of data obtained from the PamStation&reg; 12 platform can help answer two key questions: which kinases are the most important in a given sample, and what functional consequences arise from perturbing a particular kinase? Although a well-designed experiment can address both questions simultaneously, it is also possible to conduct separate experiments for each. To analyze the data and derive meaningful insights, a range of analytical techniques can be employed. 
 
-1. Which kinases are the most important kinases in my sample?
-2. What, if any, are the functional consequences of perturbing a particular kinase?
+These techniques can be broadly divided into three categories: upstream kinase identification techniques, kinase pathway analysis techniques, and visualization and summarization techniques. Upstream kinase identification techniques seek to identify the kinases that are responsible for the observed changes in phosphorylation levels, typically by perturbing the system and then using statistical methods to identify the kinases whose activity changes significantly. Kinase pathway analysis techniques aim to identify the pathways that are affected by kinase perturbations, using either experimental data or existing knowledge of kinase signaling networks. Visualization and summarization techniques enable the visualization of complex data sets and summarization of key findings, providing a means of communicating results to others.
 
-A well-designed experiment can attempt to answer both these question within the same experiment. However, it is also possible to design separate experiments for each of these questions.
+Each of these categories includes several techniques that can be tailored to the specific research question and experimental design. The following sections will elaborate on each category and provide examples of the techniques that fall within each.
 
-To simplify the process, the analytical techniques can be divided into three broad buckets:
+## Upstream Kinase Identification
 
-1. Upstream Kinase Identification Techniques
-2. Kinase Pathway Analysis Techniques
-3. Visualization and Summarization Techniques
+The raw output from the preprocessing step is phosphorylation status of individual peptides. This only indirectly measures the activity of the kinases by way of the identificaiton of targets of individual kinases. Thus, it is important to have a way to identify indivdual kinases that are upstream of a particula peptide and thus, may be involved in the phosphorylation of such targets.
+
+The general approach to upstream kinase identification can be summarised as follows:
+
+1. Select a particular state of phosphorylation from the input data. Usually this is the phosphorylation data from the final cycle of the array run.
+2. For each individual sample, define a variable that will summarise the phosphorylation level of that peptide.
+3. Identify how the phosphorylation status changes with respect to a control group
+4. Use either experimental, literature-based or computational predictions for possible kinases upstream of a particular peptide and use a statistical model to identify the most prominent ones.
+
+There are four available packages that allow us to do upstream kinase identification. These are:
+
+* Upstream Kinase Analysis (UKA)
+* Kinome Random Sampling Analysis (KRSA)
+* Kinase Enrichment Analysis v3 (KEA3)
+* Post-Translational Modification Signature Enrichment Analysis  (PTM-SEA)
 
 
