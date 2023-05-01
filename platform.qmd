@@ -8,7 +8,9 @@ The PamGene PamStation 12 (PamStation® 12) Platform is a high-throughput peptid
 
 The PamChip® is a microarray chip that is used for profiling the kinase activity. Each chip contains four wells, with each well being capable of processing a single sample. @fig-pamchip-closeup shows a typical PamChip® 4
 
-Each well contains up to 196 unique reporter peptides that can be phosphorylated by specific kinases. The STK and PTK PamChips have 144 and 196 peptides, respectively. The phosphorylation of the peptides is detected in real-time using fluorescent antibodies against the phosphorylated residues. The resulting fluorescent intensity is a direct measure of the extent of reporter peptide phosphorylation, and can be used as a proxy for kinase activity. @fig-pamchip-detection-principle shows the underlying principle of detection.
+The basic design of the chips is the same but they differ in the individual reporter peptides that are printed on the chip. The basic design of the chip can be seen in @fig-pamchip-closeup. The chip is approximately as long as a credit card and has 4 wells. Each well can be used for one sample.
+
+@fig-platform-overview explains the logical construct of the chip. In each well of a chip, there is a grid of either 144 (for STK) or 196 (for PTK) peptides known to be substrates for kinases. Each spot has ∼ 300, 000 copies of the same peptide printed on it. The PamStation® 12 instrument accepts 3 chips of one kinds, either PTK or STK. The instrument then goes through several cycles of sample injection and washing. Once sufficient time has been given to the process, a flourescent antibody is added to the chip to allow for visualization. This allows for real-time capture of the activity based on the fluorescence levels. The STK chip requires two different antibodies to achieve fluorescence. The different mechanisms are summarized in @fig-pamchip-detection-principle.
 
 ## Kinase Coverage in PamChip® 4
 
