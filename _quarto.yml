@@ -9,7 +9,9 @@ book:
     - index.qmd
     - intro.qmd
     - platform.qmd
-    - data_output.qmd
+    - data_generation.qmd
+    - analytical_approaches.qmd
+    - case_study.qmd
     - references.qmd
 
 bibliography: references.bib
