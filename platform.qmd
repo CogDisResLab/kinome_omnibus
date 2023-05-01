@@ -1,16 +1,24 @@
 # The PamStation® Platform
 
-The PamGene PamStation 12 (PamStation® 12) Platform is a high-throughput peptide array platform that enables multiplexed kinase activity profiling. The technology is based on the PamChip microarray chips, which contain hundreds of unique peptide sequences that are phosphorylated by kinases. The Pamstation® 12 can be used to profile the activity of serine/threonine (STK) kinases or protein tyrosine (PTK) kinases. The platform has two separate components: The Microarray Chip (PamChip® 4), and the Platform (Pamstation® 12) to process the samples. @fig-platform-overview shows an overview of the platform.
+The PamGene PamStation 12 (PamStation® 12) Platform is a high-throughput peptide array platform that enables multiplexed kinase activity profiling [@Breitkreutz2012; @mertins2014; @mcbrayer2012; @stebbing2014; @herling2016; @lee2009]. The technology is based on the PamChip microarray chips, which contain hundreds of unique peptide sequences that are phosphorylated by kinases. The Pamstation® 12 can be used to profile the activity of serine/threonine (STK) kinases or protein tyrosine (PTK) kinases . The platform has two separate components: The Microarray Chip (PamChip® 4), and the Platform (Pamstation® 12) to process the samples. @fig-platform-overview shows an overview of the platform.
 
 ![An overview of the PamStation® 12 Platform](img/PamStation-Assay-Overview.jpg){#fig-platform-overview}
 
 ## PamChip® 4
 
-The PamChip® is a microarray chip that is used for profiling the kinase activity. Each chip contains four wells, with each well being capable of processing a single sample. @fig-pamchip-closeup shows a typical PamChip&reg; 4
+The PamChip® is a microarray chip that is used for profiling the kinase activity. Each chip contains four wells, with each well being capable of processing a single sample. @fig-pamchip-closeup shows a typical PamChip® 4
 
 Each well contains up to 196 unique reporter peptides that can be phosphorylated by specific kinases. The STK and PTK PamChips have 144 and 196 peptides, respectively. The phosphorylation of the peptides is detected in real-time using fluorescent antibodies against the phosphorylated residues. The resulting fluorescent intensity is a direct measure of the extent of reporter peptide phosphorylation, and can be used as a proxy for kinase activity. @fig-pamchip-detection-principle shows the underlying principle of detection.
 
-![A close-up view of a PamChip&reg; 4](img/PamChip-Picture.jpg){#fig-pamchip-closeup}
+## Kinase Coverage in PamChip® 4
+
+The PamGene platform provides coverage for a substantial proportion of the human kinome, enabling a comprehensive analysis of kinase activity. Specifically, the STK and PTK chips have been designed to cover a large number of Ser/Thr and Tyr kinases, respectively. It has been reported that the STK and PTK chips can map approximately 65% and 96% of the known human Ser/Thr and Tyr kinases, respectively [@manning2002]. Furthermore, the platform is able to detect about 18 out of 21 (86%) of the dual specificity kinases [@manning2002]. This broad coverage enables researchers to simultaneously screen the activity of multiple kinases, providing a more complete understanding of the biological system being studied.
+
+Additionally, the STK chip has been shown to have sensitivity for detection into the picogram range for many kinases [@manning2002]. The coverage of kinases in the STK chip is also representative of the abundance of protein kinases in neurons. A study based on the Brainseq neuron database (https://www.brainrnaseq.org/) showed that the STK chip covers similar amounts of low (52%), medium (65%), and high (65%) abundance protein kinases in neurons [@sousa2017].
+
+Taken together, these findings demonstrate that the PamGene platform provides a comprehensive and sensitive tool for studying kinase activity in a wide range of biological systems.
+
+![A close-up view of a PamChip® 4](img/PamChip-Picture.jpg){#fig-pamchip-closeup}
 
 ## PamStation® 12
 
