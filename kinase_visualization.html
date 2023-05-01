@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CDRL Kinome Analysis Omnibus - 4&nbsp; Analytical Approaches</title>
+<title>CDRL Kinome Analysis Omnibus - 7&nbsp; Visualizing Kinase Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./upstream_kinase.html" rel="next">
-<link href="./data_generation.html" rel="prev">
+<link href="./case_study.html" rel="next">
+<link href="./kinase_pathways.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./analytical_approaches.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Analytical Approaches</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./kinase_visualization.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Visualizing Kinase Data</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -124,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analytical_approaches.html" class="sidebar-item-text sidebar-link active">
+  <a href="./analytical_approaches.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Analytical Approaches</span></span></a>
   </div>
 </li>
@@ -142,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./kinase_visualization.html" class="sidebar-item-text sidebar-link">
+  <a href="./kinase_visualization.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Visualizing Kinase Data</span></span></a>
   </div>
 </li>
@@ -164,21 +164,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#approaches" id="toc-approaches" class="nav-link active" data-scroll-target="#approaches"><span class="header-section-number">4.1</span> Approaches</a></li>
-  <li><a href="#upstream-kinase-identification" id="toc-upstream-kinase-identification" class="nav-link" data-scroll-target="#upstream-kinase-identification"><span class="header-section-number">4.2</span> Upstream Kinase Identification</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Analytical Approaches</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Visualizing Kinase Data</span></h1>
 </div>
 
 
@@ -193,34 +186,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The PamStation® 12 Platform generates a large amount of data in a single experiment. The raw data obtained from the platform includes fluorescence intensity values for each well, at each cycle and exposure level. This data is rich in information, but in its raw form, it cannot be easily interpreted without further processing. The preprocessing step transforms the raw image data into fluorescence intensity values that can be analyzed using various computational methods. In this chapter, we outline different analytical approaches that can be taken to extract meaningful insights from the processed data. These approaches include upstream kinase analysis, unsupervised and supervised clustering methods, statistical approaches, pathway analysis, and visualization techniques. We also discuss the advantages and limitations of each approach. Through the use of these analytical approaches, we can uncover hidden patterns and relationships in the data and gain a deeper understanding of kinase signaling pathways.</p>
-<p><a href="case_study.html">Chapter&nbsp;<span>8</span></a> will walk us through all of the approaches outlined here on an example dataset.</p>
-<section id="approaches" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="approaches"><span class="header-section-number">4.1</span> Approaches</h2>
-<p>The analysis of data obtained from the PamStation® 12 platform can help answer two key questions: which kinases are the most important in a given sample, and what functional consequences arise from perturbing a particular kinase? Although a well-designed experiment can address both questions simultaneously, it is also possible to conduct separate experiments for each. To analyze the data and derive meaningful insights, a range of analytical techniques can be employed.</p>
-<p>These techniques can be broadly divided into three categories: upstream kinase identification techniques, kinase pathway analysis techniques, and visualization and summarization techniques. Upstream kinase identification techniques seek to identify the kinases that are responsible for the observed changes in phosphorylation levels, typically by perturbing the system and then using statistical methods to identify the kinases whose activity changes significantly. Kinase pathway analysis techniques aim to identify the pathways that are affected by kinase perturbations, using either experimental data or existing knowledge of kinase signaling networks. Visualization and summarization techniques enable the visualization of complex data sets and summarization of key findings, providing a means of communicating results to others.</p>
-<p>Each of these categories includes several techniques that can be tailored to the specific research question and experimental design. The following sections will elaborate on each category and provide examples of the techniques that fall within each.</p>
-</section>
-<section id="upstream-kinase-identification" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="upstream-kinase-identification"><span class="header-section-number">4.2</span> Upstream Kinase Identification</h2>
-<p>The raw output from the preprocessing step is phosphorylation status of individual peptides. This only indirectly measures the activity of the kinases by way of the identificaiton of targets of individual kinases. Thus, it is important to have a way to identify indivdual kinases that are upstream of a particula peptide and thus, may be involved in the phosphorylation of such targets.</p>
-<p>The general approach to upstream kinase identification can be summarised as follows:</p>
-<ol type="1">
-<li>Select a particular state of phosphorylation from the input data. Usually this is the phosphorylation data from the final cycle of the array run.</li>
-<li>For each individual sample, define a variable that will summarise the phosphorylation level of that peptide.</li>
-<li>Identify how the phosphorylation status changes with respect to a control group</li>
-<li>Use either experimental, literature-based or computational predictions for possible kinases upstream of a particular peptide and use a statistical model to identify the most prominent ones.</li>
-</ol>
-<p>There are four available packages that allow us to do upstream kinase identification. These are:</p>
-<ul>
-<li>Upstream Kinase Analysis (UKA)</li>
-<li>Kinome Random Sampling Analysis (KRSA)</li>
-<li>Kinase Enrichment Analysis v3 (KEA3)</li>
-<li>Post-Translational Modification Signature Enrichment Analysis (PTM-SEA)</li>
-</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -458,13 +425,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./data_generation.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data Generation</span></span>
+      <a href="./kinase_pathways.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pathway Analysis of Kinase Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./upstream_kinase.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Upstream Kinase Identification</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./case_study.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Case Study</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
