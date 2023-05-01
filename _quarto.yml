@@ -11,6 +11,9 @@ book:
     - platform.qmd
     - data_generation.qmd
     - analytical_approaches.qmd
+    - upstream_kinase.qmd
+    - kinase_pathways.qmd
+    - kinase_visualization.qmd
     - case_study.qmd
     - references.qmd
 
