@@ -1,15 +1,24 @@
 # Analytical Approaches
 
-The PamStation&reg; 12 Platform generates a large amount of data in a single experiment. The raw data obtained from the platform includes fluorescence intensity values for each well, at each cycle and exposure level. This data is rich in information, but in its raw form, it cannot be easily interpreted without further processing. The preprocessing step transforms the raw image data into fluorescence intensity values that can be analyzed using various computational methods. In this chapter, we outline different analytical approaches that can be taken to extract meaningful insights from the processed data. These approaches include upstream kinase analysis, unsupervised and supervised clustering methods, statistical approaches, pathway analysis, and visualization techniques. We also discuss the advantages and limitations of each approach. Through the use of these analytical approaches, we can uncover hidden patterns and relationships in the data and gain a deeper understanding of kinase signaling pathways.
+The PamStation® 12 Platform generates a large amount of data in a single experiment. The raw data obtained from the platform includes fluorescence intensity values for each well, at each cycle and exposure level. This data is rich in information, but in its raw form, it cannot be easily interpreted without further processing. The preprocessing step transforms the raw image data into fluorescence intensity values that can be analyzed using various computational methods. In this chapter, we outline different analytical approaches that can be taken to extract meaningful insights from the processed data. These approaches include upstream kinase analysis, unsupervised and supervised clustering methods, statistical approaches, pathway analysis, and visualization techniques. We also discuss the advantages and limitations of each approach. Through the use of these analytical approaches, we can uncover hidden patterns and relationships in the data and gain a deeper understanding of kinase signaling pathways.
 
 [Chapter -@sec-case-study] will walk us through all of the approaches outlined here on an example dataset.
 
-
 ## Approaches
 
-The analysis of data obtained from the PamStation&reg; 12 platform can help answer two key questions: which kinases are the most important in a given sample, and what functional consequences arise from perturbing a particular kinase? Although a well-designed experiment can address both questions simultaneously, it is also possible to conduct separate experiments for each. To analyze the data and derive meaningful insights, a range of analytical techniques can be employed. 
+The analysis of data obtained from the PamStation® 12 platform can help answer two key questions: which kinases are the most important in a given sample, and what functional consequences arise from perturbing a particular kinase? Although a well-designed experiment can address both questions simultaneously, it is also possible to conduct separate experiments for each. To analyze the data and derive meaningful insights, a range of analytical techniques can be employed.
 
-These techniques can be broadly divided into three categories: upstream kinase identification techniques, kinase pathway analysis techniques, and visualization and summarization techniques. Upstream kinase identification techniques seek to identify the kinases that are responsible for the observed changes in phosphorylation levels, typically by perturbing the system and then using statistical methods to identify the kinases whose activity changes significantly. Kinase pathway analysis techniques aim to identify the pathways that are affected by kinase perturbations, using either experimental data or existing knowledge of kinase signaling networks. Visualization and summarization techniques enable the visualization of complex data sets and summarization of key findings, providing a means of communicating results to others.
+These techniques can be broadly divided into three categories:
+
+1.  Upstream kinase identification techniques
+2.  Kinase pathway analysis techniques
+3.  Visualization and summarization techniques.
+
+Upstream kinase identification techniques seek to identify the kinases that are responsible for the observed changes in phosphorylation levels, typically by perturbing the system and then using statistical methods to identify the kinases whose activity changes significantly.
+
+Kinase pathway analysis techniques aim to identify the pathways that are affected by kinase perturbations, using either experimental data or existing knowledge of kinase signaling networks.
+
+Visualization and summarization techniques enable the visualization of complex data sets and summarization of key findings, providing a means of communicating results to others.
 
 Each of these categories includes several techniques that can be tailored to the specific research question and experimental design. The following sections will elaborate on each category and provide examples of the techniques that fall within each.
 
@@ -19,16 +28,44 @@ The raw output from the preprocessing step is phosphorylation status of individu
 
 The general approach to upstream kinase identification can be summarised as follows:
 
-1. Select a particular state of phosphorylation from the input data. Usually this is the phosphorylation data from the final cycle of the array run.
-2. For each individual sample, define a variable that will summarise the phosphorylation level of that peptide.
-3. Identify how the phosphorylation status changes with respect to a control group
-4. Use either experimental, literature-based or computational predictions for possible kinases upstream of a particular peptide and use a statistical model to identify the most prominent ones.
+1.  Select a particular state of phosphorylation from the input data. Usually this is the phosphorylation data from the final cycle of the array run.
+2.  For each individual sample, define a variable that will summarise the phosphorylation level of that peptide.
+3.  Identify how the phosphorylation status changes with respect to a control group
+4.  Use either experimental, literature-based or computational predictions for possible kinases upstream of a particular peptide and use a statistical model to identify the most prominent ones.
 
 There are four available packages that allow us to do upstream kinase identification. These are:
 
-* Upstream Kinase Analysis (UKA)
-* Kinome Random Sampling Analysis (KRSA)
-* Kinase Enrichment Analysis v3 (KEA3)
-* Post-Translational Modification Signature Enrichment Analysis  (PTM-SEA)
+-   Upstream Kinase Analysis (UKA)
+-   Kinome Random Sampling Analysis (KRSA)
+-   Kinase Enrichment Analysis v3 (KEA3)
+-   Post-Translational Modification Signature Enrichment Analysis (PTM-SEA)
 
+## Pathway Analysis
 
+While identification of kinases is important and useful in its own right, understanding the functional consequences of the kinase activity is equally, if not more important. For this purpose, we can utilize various databases that have collected and curated functional information about the genes. This question makes the core of pathway analysis [@khatri2012].
+
+For pathway analysis, there are two different approaches that rely on different results: utilizing the substrate activity for identifying downstream pathways or utilizing the identified kinases for identifying downstream pathways.
+
+For both cases, the general workflow is as follows:
+
+1.  Identify the genes that have been impacted in the experiment, either by a threshold or by a proportional measure.
+2.  Identify the relevant database that has the information you need.
+3.  Use the particular database's interface to upload the gene data and scores if necessary to get the list of enriched pathways.
+
+Several pathway analysis tools are available, such as Reactome [@gillespie2021; @griss2020; @jassal2019; @fabregat2018; @fabregat2017; @sidiropoulos2017; @fabregat2017a; @wu2017], KEGG [@kanehisa2000; @kanehisa2019; @kanehisa2022], and GO enrichment analysis [@ashburner2000; @thegene2020]. These databases provide curated pathway annotations and functional analysis of the genes, making it easier to interpret the results obtained from PamGene data analysis.
+
+Reactome is a database of manually curated pathway information, and it provides a web-based interface for the analysis of gene lists. The software can analyze the gene list and identify enriched pathways based on the input data [@gillespie2021; @griss2020; @jassal2019; @fabregat2018; @fabregat2017; @sidiropoulos2017; @fabregat2017a; @wu2017].
+
+KEGG is another database for understanding high-level functions and utilities of the biological system, such as the cell, the organism, and the ecosystem, from molecular-level information, especially large-scale molecular datasets generated by genome sequencing and other high-throughput experimental technologies [@kanehisa2000; @kanehisa2019; @kanehisa2022].
+
+GO enrichment analysis is another pathway analysis technique that is widely used. It is used to determine whether certain GO terms (i.e., biological processes, cellular components, and molecular functions) are overrepresented in the list of genes. This method helps to identify which GO terms are most impacted by the gene list and can provide a comprehensive understanding of the biological context of the analyzed data [@ashburner2000; @thegene2020].
+
+## Visualization and Summarization
+
+In analyzing the large amount of data generated by the primary data and subsequent analyses, it is often necessary to summarize the data in a figure to aid in interpretation. One commonly used way to summarize global kinase activity is through the use of a row-scaled heatmap. This type of heatmap allows for the clustering of both samples and peptides, which can identify homogeneity within samples and functional clusters of peptides. This is particularly useful for analyzing activity across all the samples and peptides present on the chip. 
+
+Another effective way to summarize global activity is through boxplots or violin plots of all the peptides in a given sample. These plots can be split by barcodes and group membership to showcase differences and heterogeneity, respectively. This approach allows for the visualization of the distribution of activity across peptides and provides insight into the level of variation within each sample.
+
+For group comparisons, a waterfall plot can be used to show the change in activity between two groups. This type of plot shows individual changes in peptide activity between two groups, with the change on the x-axis and the peptides on the y-axis. Replicates, if present, can be plotted on the same line with an additional "mean" change dot plotted in the middle. This type of plot can help to identify differences in activity between groups and highlight potential biomarkers.
+
+Heatmaps are also useful for group comparisons, where only the samples of interest are kept and the data is normalized among them. These group-specific heatmaps are similar to the global heatmaps but contain only the two designated groups. This allows for an easier comparison between the two groups, while also highlighting differences in activity. Overall, the choice of figure type will depend on the research question and the type of data being analyzed.
