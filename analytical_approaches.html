@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -170,6 +189,8 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#approaches" id="toc-approaches" class="nav-link active" data-scroll-target="#approaches"><span class="header-section-number">4.1</span> Approaches</a></li>
   <li><a href="#upstream-kinase-identification" id="toc-upstream-kinase-identification" class="nav-link" data-scroll-target="#upstream-kinase-identification"><span class="header-section-number">4.2</span> Upstream Kinase Identification</a></li>
+  <li><a href="#pathway-analysis" id="toc-pathway-analysis" class="nav-link" data-scroll-target="#pathway-analysis"><span class="header-section-number">4.3</span> Pathway Analysis</a></li>
+  <li><a href="#visualization-and-summarization" id="toc-visualization-and-summarization" class="nav-link" data-scroll-target="#visualization-and-summarization"><span class="header-section-number">4.4</span> Visualization and Summarization</a></li>
   </ul>
 </nav>
     </div>
@@ -198,7 +219,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="approaches" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="approaches"><span class="header-section-number">4.1</span> Approaches</h2>
 <p>The analysis of data obtained from the PamStation® 12 platform can help answer two key questions: which kinases are the most important in a given sample, and what functional consequences arise from perturbing a particular kinase? Although a well-designed experiment can address both questions simultaneously, it is also possible to conduct separate experiments for each. To analyze the data and derive meaningful insights, a range of analytical techniques can be employed.</p>
-<p>These techniques can be broadly divided into three categories: upstream kinase identification techniques, kinase pathway analysis techniques, and visualization and summarization techniques. Upstream kinase identification techniques seek to identify the kinases that are responsible for the observed changes in phosphorylation levels, typically by perturbing the system and then using statistical methods to identify the kinases whose activity changes significantly. Kinase pathway analysis techniques aim to identify the pathways that are affected by kinase perturbations, using either experimental data or existing knowledge of kinase signaling networks. Visualization and summarization techniques enable the visualization of complex data sets and summarization of key findings, providing a means of communicating results to others.</p>
+<p>These techniques can be broadly divided into three categories:</p>
+<ol type="1">
+<li>Upstream kinase identification techniques</li>
+<li>Kinase pathway analysis techniques</li>
+<li>Visualization and summarization techniques.</li>
+</ol>
+<p>Upstream kinase identification techniques seek to identify the kinases that are responsible for the observed changes in phosphorylation levels, typically by perturbing the system and then using statistical methods to identify the kinases whose activity changes significantly.</p>
+<p>Kinase pathway analysis techniques aim to identify the pathways that are affected by kinase perturbations, using either experimental data or existing knowledge of kinase signaling networks.</p>
+<p>Visualization and summarization techniques enable the visualization of complex data sets and summarization of key findings, providing a means of communicating results to others.</p>
 <p>Each of these categories includes several techniques that can be tailored to the specific research question and experimental design. The following sections will elaborate on each category and provide examples of the techniques that fall within each.</p>
 </section>
 <section id="upstream-kinase-identification" class="level2" data-number="4.2">
@@ -218,8 +247,74 @@ ul.task-list li input[type="checkbox"] {
 <li>Kinase Enrichment Analysis v3 (KEA3)</li>
 <li>Post-Translational Modification Signature Enrichment Analysis (PTM-SEA)</li>
 </ul>
+</section>
+<section id="pathway-analysis" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="pathway-analysis"><span class="header-section-number">4.3</span> Pathway Analysis</h2>
+<p>While identification of kinases is important and useful in its own right, understanding the functional consequences of the kinase activity is equally, if not more important. For this purpose, we can utilize various databases that have collected and curated functional information about the genes. This question makes the core of pathway analysis <span class="citation" data-cites="khatri2012">(<a href="references.html#ref-khatri2012" role="doc-biblioref">Khatri, Sirota, and Butte 2012</a>)</span>.</p>
+<p>For pathway analysis, there are two different approaches that rely on different results: utilizing the substrate activity for identifying downstream pathways or utilizing the identified kinases for identifying downstream pathways.</p>
+<p>For both cases, the general workflow is as follows:</p>
+<ol type="1">
+<li>Identify the genes that have been impacted in the experiment, either by a threshold or by a proportional measure.</li>
+<li>Identify the relevant database that has the information you need.</li>
+<li>Use the particular database’s interface to upload the gene data and scores if necessary to get the list of enriched pathways.</li>
+</ol>
+<p>Several pathway analysis tools are available, such as Reactome <span class="citation" data-cites="gillespie2021 griss2020 jassal2019 fabregat2018 fabregat2017 sidiropoulos2017 fabregat2017a wu2017">(<a href="references.html#ref-gillespie2021" role="doc-biblioref">Gillespie et al. 2021</a>; <a href="references.html#ref-griss2020" role="doc-biblioref">Griss et al. 2020</a>; <a href="references.html#ref-jassal2019" role="doc-biblioref">Jassal et al. 2019</a>; <a href="references.html#ref-fabregat2018" role="doc-biblioref">Fabregat et al. 2018</a>; <a href="references.html#ref-fabregat2017" role="doc-biblioref">Fabregat, Sidiropoulos, Viteri, Marin-Garcia, et al. 2017</a>; <a href="references.html#ref-sidiropoulos2017" role="doc-biblioref">Sidiropoulos et al. 2017</a>; <a href="references.html#ref-fabregat2017a" role="doc-biblioref">Fabregat, Sidiropoulos, Viteri, Forner, et al. 2017</a>; <a href="references.html#ref-wu2017" role="doc-biblioref">Wu and Haw 2017</a>)</span>, KEGG <span class="citation" data-cites="kanehisa2000 kanehisa2019 kanehisa2022">(<a href="references.html#ref-kanehisa2000" role="doc-biblioref">M. Kanehisa 2000</a>; <a href="references.html#ref-kanehisa2019" role="doc-biblioref">Minoru Kanehisa 2019</a>; <a href="references.html#ref-kanehisa2022" role="doc-biblioref">Minoru Kanehisa et al. 2022</a>)</span>, and GO enrichment analysis <span class="citation" data-cites="ashburner2000 thegene2020">(<a href="references.html#ref-ashburner2000" role="doc-biblioref">Ashburner et al. 2000</a>; <a href="references.html#ref-thegene2020" role="doc-biblioref">Carbon et al. 2020</a>)</span>. These databases provide curated pathway annotations and functional analysis of the genes, making it easier to interpret the results obtained from PamGene data analysis.</p>
+<p>Reactome is a database of manually curated pathway information, and it provides a web-based interface for the analysis of gene lists. The software can analyze the gene list and identify enriched pathways based on the input data <span class="citation" data-cites="gillespie2021 griss2020 jassal2019 fabregat2018 fabregat2017 sidiropoulos2017 fabregat2017a wu2017">(<a href="references.html#ref-gillespie2021" role="doc-biblioref">Gillespie et al. 2021</a>; <a href="references.html#ref-griss2020" role="doc-biblioref">Griss et al. 2020</a>; <a href="references.html#ref-jassal2019" role="doc-biblioref">Jassal et al. 2019</a>; <a href="references.html#ref-fabregat2018" role="doc-biblioref">Fabregat et al. 2018</a>; <a href="references.html#ref-fabregat2017" role="doc-biblioref">Fabregat, Sidiropoulos, Viteri, Marin-Garcia, et al. 2017</a>; <a href="references.html#ref-sidiropoulos2017" role="doc-biblioref">Sidiropoulos et al. 2017</a>; <a href="references.html#ref-fabregat2017a" role="doc-biblioref">Fabregat, Sidiropoulos, Viteri, Forner, et al. 2017</a>; <a href="references.html#ref-wu2017" role="doc-biblioref">Wu and Haw 2017</a>)</span>.</p>
+<p>KEGG is another database for understanding high-level functions and utilities of the biological system, such as the cell, the organism, and the ecosystem, from molecular-level information, especially large-scale molecular datasets generated by genome sequencing and other high-throughput experimental technologies <span class="citation" data-cites="kanehisa2000 kanehisa2019 kanehisa2022">(<a href="references.html#ref-kanehisa2000" role="doc-biblioref">M. Kanehisa 2000</a>; <a href="references.html#ref-kanehisa2019" role="doc-biblioref">Minoru Kanehisa 2019</a>; <a href="references.html#ref-kanehisa2022" role="doc-biblioref">Minoru Kanehisa et al. 2022</a>)</span>.</p>
+<p>GO enrichment analysis is another pathway analysis technique that is widely used. It is used to determine whether certain GO terms (i.e., biological processes, cellular components, and molecular functions) are overrepresented in the list of genes. This method helps to identify which GO terms are most impacted by the gene list and can provide a comprehensive understanding of the biological context of the analyzed data <span class="citation" data-cites="ashburner2000 thegene2020">(<a href="references.html#ref-ashburner2000" role="doc-biblioref">Ashburner et al. 2000</a>; <a href="references.html#ref-thegene2020" role="doc-biblioref">Carbon et al. 2020</a>)</span>.</p>
+</section>
+<section id="visualization-and-summarization" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="visualization-and-summarization"><span class="header-section-number">4.4</span> Visualization and Summarization</h2>
+<p>In analyzing the large amount of data generated by the primary data and subsequent analyses, it is often necessary to summarize the data in a figure to aid in interpretation. One commonly used way to summarize global kinase activity is through the use of a row-scaled heatmap. This type of heatmap allows for the clustering of both samples and peptides, which can identify homogeneity within samples and functional clusters of peptides. This is particularly useful for analyzing activity across all the samples and peptides present on the chip.</p>
+<p>Another effective way to summarize global activity is through boxplots or violin plots of all the peptides in a given sample. These plots can be split by barcodes and group membership to showcase differences and heterogeneity, respectively. This approach allows for the visualization of the distribution of activity across peptides and provides insight into the level of variation within each sample.</p>
+<p>For group comparisons, a waterfall plot can be used to show the change in activity between two groups. This type of plot shows individual changes in peptide activity between two groups, with the change on the x-axis and the peptides on the y-axis. Replicates, if present, can be plotted on the same line with an additional “mean” change dot plotted in the middle. This type of plot can help to identify differences in activity between groups and highlight potential biomarkers.</p>
+<p>Heatmaps are also useful for group comparisons, where only the samples of interest are kept and the data is normalized among them. These group-specific heatmaps are similar to the global heatmaps but contain only the two designated groups. This allows for an easier comparison between the two groups, while also highlighting differences in activity. Overall, the choice of figure type will depend on the research question and the type of data being analyzed.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-ashburner2000" class="csl-entry" role="listitem">
+Ashburner, Michael, Catherine A. Ball, Judith A. Blake, David Botstein, Heather Butler, J. Michael Cherry, Allan P. Davis, et al. 2000. <span>“Gene Ontology: Tool for the Unification of Biology.”</span> <em>Nature Genetics</em> 25 (1): 25–29. <a href="https://doi.org/10.1038/75556">https://doi.org/10.1038/75556</a>.
+</div>
+<div id="ref-thegene2020" class="csl-entry" role="listitem">
+Carbon, Seth, Eric Douglass, Benjamin M Good, Deepak R Unni, Nomi L Harris, Christopher J Mungall, Siddartha Basu, et al. 2020. <span>“The Gene Ontology Resource: Enriching a GOld Mine.”</span> <em>Nucleic Acids Research</em> 49 (D1): D325–34. <a href="https://doi.org/10.1093/nar/gkaa1113">https://doi.org/10.1093/nar/gkaa1113</a>.
+</div>
+<div id="ref-fabregat2018" class="csl-entry" role="listitem">
+Fabregat, Antonio, Florian Korninger, Guilherme Viteri, Konstantinos Sidiropoulos, Pablo Marin-Garcia, Peipei Ping, Guanming Wu, Lincoln Stein, Peter D’Eustachio, and Henning Hermjakob. 2018. <span>“Reactome Graph Database: Efficient Access to Complex Pathway Data.”</span> Edited by Timothée Poisot. <em>PLOS Computational Biology</em> 14 (1): e1005968. <a href="https://doi.org/10.1371/journal.pcbi.1005968">https://doi.org/10.1371/journal.pcbi.1005968</a>.
+</div>
+<div id="ref-fabregat2017a" class="csl-entry" role="listitem">
+Fabregat, Antonio, Konstantinos Sidiropoulos, Guilherme Viteri, Oscar Forner, Pablo Marin-Garcia, Vicente Arnau, Peter D’Eustachio, Lincoln Stein, and Henning Hermjakob. 2017. <span>“Reactome Pathway Analysis: A High-Performance in-Memory Approach.”</span> <em>BMC Bioinformatics</em> 18 (1). <a href="https://doi.org/10.1186/s12859-017-1559-2">https://doi.org/10.1186/s12859-017-1559-2</a>.
+</div>
+<div id="ref-fabregat2017" class="csl-entry" role="listitem">
+Fabregat, Antonio, Konstantinos Sidiropoulos, Guilherme Viteri, Pablo Marin-Garcia, Peipei Ping, Lincoln Stein, Peter D’Eustachio, and Henning Hermjakob. 2017. <span>“Reactome Diagram Viewer: Data Structures and Strategies to Boost Performance.”</span> Edited by Janet Kelso. <em>Bioinformatics</em> 34 (7): 1208–14. <a href="https://doi.org/10.1093/bioinformatics/btx752">https://doi.org/10.1093/bioinformatics/btx752</a>.
+</div>
+<div id="ref-gillespie2021" class="csl-entry" role="listitem">
+Gillespie, Marc, Bijay Jassal, Ralf Stephan, Marija Milacic, Karen Rothfels, Andrea Senff-Ribeiro, Johannes Griss, et al. 2021. <span>“The Reactome Pathway Knowledgebase 2022.”</span> <em>Nucleic Acids Research</em> 50 (D1): D687–92. <a href="https://doi.org/10.1093/nar/gkab1028">https://doi.org/10.1093/nar/gkab1028</a>.
+</div>
+<div id="ref-griss2020" class="csl-entry" role="listitem">
+Griss, Johannes, Guilherme Viteri, Konstantinos Sidiropoulos, Vy Nguyen, Antonio Fabregat, and Henning Hermjakob. 2020. <span>“ReactomeGSA - Efficient Multi-Omics Comparative Pathway Analysis.”</span> <em>Molecular &amp; Cellular Proteomics</em> 19 (12): 2115–25. <a href="https://doi.org/10.1074/mcp.tir120.002155">https://doi.org/10.1074/mcp.tir120.002155</a>.
+</div>
+<div id="ref-jassal2019" class="csl-entry" role="listitem">
+Jassal, Bijay, Lisa Matthews, Guilherme Viteri, Chuqiao Gong, Pascual Lorente, Antonio Fabregat, Konstantinos Sidiropoulos, et al. 2019. <span>“The Reactome Pathway Knowledgebase.”</span> <em>Nucleic Acids Research</em>, November. <a href="https://doi.org/10.1093/nar/gkz1031">https://doi.org/10.1093/nar/gkz1031</a>.
+</div>
+<div id="ref-kanehisa2000" class="csl-entry" role="listitem">
+Kanehisa, M. 2000. <span>“KEGG: Kyoto Encyclopedia of Genes and Genomes.”</span> <em>Nucleic Acids Research</em> 28 (1): 27–30. <a href="https://doi.org/10.1093/nar/28.1.27">https://doi.org/10.1093/nar/28.1.27</a>.
+</div>
+<div id="ref-kanehisa2019" class="csl-entry" role="listitem">
+Kanehisa, Minoru. 2019. <span>“Toward Understanding the Origin and Evolution of Cellular Organisms.”</span> <em>Protein Science</em> 28 (11): 1947–51. <a href="https://doi.org/10.1002/pro.3715">https://doi.org/10.1002/pro.3715</a>.
+</div>
+<div id="ref-kanehisa2022" class="csl-entry" role="listitem">
+Kanehisa, Minoru, Miho Furumichi, Yoko Sato, Masayuki Kawashima, and Mari Ishiguro-Watanabe. 2022. <span>“KEGG for Taxonomy-Based Analysis of Pathways and Genomes.”</span> <em>Nucleic Acids Research</em> 51 (D1): D587–92. <a href="https://doi.org/10.1093/nar/gkac963">https://doi.org/10.1093/nar/gkac963</a>.
+</div>
+<div id="ref-khatri2012" class="csl-entry" role="listitem">
+Khatri, Purvesh, Marina Sirota, and Atul J. Butte. 2012. <span>“Ten Years of Pathway Analysis: Current Approaches and Outstanding Challenges.”</span> Edited by Christos A. Ouzounis. <em>PLoS Computational Biology</em> 8 (2): e1002375. <a href="https://doi.org/10.1371/journal.pcbi.1002375">https://doi.org/10.1371/journal.pcbi.1002375</a>.
+</div>
+<div id="ref-sidiropoulos2017" class="csl-entry" role="listitem">
+Sidiropoulos, Konstantinos, Guilherme Viteri, Cristoffer Sevilla, Steve Jupe, Marissa Webber, Marija Orlic-Milacic, Bijay Jassal, et al. 2017. <span>“Reactome Enhanced Pathway Visualization.”</span> Edited by Janet Kelso. <em>Bioinformatics</em> 33 (21): 3461–67. <a href="https://doi.org/10.1093/bioinformatics/btx441">https://doi.org/10.1093/bioinformatics/btx441</a>.
+</div>
+<div id="ref-wu2017" class="csl-entry" role="listitem">
+Wu, Guanming, and Robin Haw. 2017. <span>“Functional Interaction Network Construction and Analysis for Disease Discovery.”</span> In, 235–53. Springer New York. <a href="https://doi.org/10.1007/978-1-4939-6783-4_11">https://doi.org/10.1007/978-1-4939-6783-4_11</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -397,25 +492,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
+      // Handle positioning of the toggle
+      window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
           }
-        });
+        };
+      }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          trigger: 'click',
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          positionFixed: true,
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
       }
   const findCites = (el) => {
     const parentEl = el.parentElement;
